@@ -8,7 +8,6 @@ const Index = () =>  {
           <Search/>
           <Tracks/>
       </React.Fragment>
-
   )
 }
 
