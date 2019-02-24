@@ -3,13 +3,29 @@ import axios from 'axios';
 
 const Context = React.createContext();
 
+//뭔가 이상함
+const reducer = (state, action) => {
+  switch(action.type){
+      case 'SEARCH+TRACKS':
+        return {
+          ...state,
+          track_list: action.payload,
+          heading: 'Search Results'
+        };
+        default:
+        return state;
+  }
+}
+
 
 export class Provider extends Component {
 
     state = {
         tack_list : [],
-        heading: 'Top 10 Track'
+        heading: 'Top 10 Track',
         //heading값 또한 바꿀 수 있다.
+        dispatch: action => this.setState(state => reducer(state, action))
+
 
     };
 
